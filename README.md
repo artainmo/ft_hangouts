@@ -1,5 +1,4 @@
-# ft_hangouts
-[42 school subject](https://cdn.intra.42.fr/pdf/pdf/60916/en.subject.pdf)
+# [ft_hangouts](https://cdn.intra.42.fr/pdf/pdf/60916/en.subject.pdf)
 
 In this project we have to create a **mobile messaging app**. 
 
