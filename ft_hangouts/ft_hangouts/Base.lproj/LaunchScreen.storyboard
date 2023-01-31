@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--ft_hangouts-->
+        <scene sceneID="EHf-IW-A2E">
+            <objects>
+                <viewController title="ft_hangouts" id="01J-lp-oVM" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="eJc-qH-F9s">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="42-logo" translatesAutoresizingMaskIntoConstraints="NO" id="0xn-WO-kDb">
+                                <rect key="frame" x="121" y="413" width="172" height="40"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2023 artainmo, Inc." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8HH-Nh-4TI">
+                                <rect key="frame" x="121" y="841" width="172" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="0uP-Ol-Dtv"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="21Y-5R-OB9"/>
+                        <color key="backgroundColor" name="background-color1"/>
+                        <constraints>
+                            <constraint firstItem="0xn-WO-kDb" firstAttribute="leading" secondItem="21Y-5R-OB9" secondAttribute="leading" constant="121" id="614-5S-lWe"/>
+                            <constraint firstItem="0xn-WO-kDb" firstAttribute="top" secondItem="21Y-5R-OB9" secondAttribute="top" constant="365" id="Lfv-DD-Qdr"/>
+                            <constraint firstItem="8HH-Nh-4TI" firstAttribute="bottom" secondItem="21Y-5R-OB9" secondAttribute="bottom" id="Rp5-C5-Kp5"/>
+                            <constraint firstItem="8HH-Nh-4TI" firstAttribute="centerX" secondItem="0xn-WO-kDb" secondAttribute="centerX" id="bwV-j4-EjD"/>
+                            <constraint firstItem="8HH-Nh-4TI" firstAttribute="leading" secondItem="0xn-WO-kDb" secondAttribute="leading" id="lEg-I4-a2f"/>
+                            <constraint firstItem="0xn-WO-kDb" firstAttribute="centerX" secondItem="eJc-qH-F9s" secondAttribute="centerX" id="sDv-zG-Wfp"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="52.173913043478265" y="374.33035714285711"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="42-logo" width="57" height="40"/>
+        <namedColor name="background-color1">
+            <color red="0.7686274509803922" green="0.8784313725490196" blue="0.792156862745098" alpha="0.99000000953674316" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>
