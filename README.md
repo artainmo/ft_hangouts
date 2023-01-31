@@ -3,7 +3,7 @@
 
 In this project we have to create a **mobile messaging app**. 
 
-I use the IOS language **Swift** with as database **Firebase**.
+I use the IOS language **Swift** in Xcode using **storyboards** for frontend with as database **SQLite**.
 
 # Documentation
 [artainmo - notes on swift](https://github.com/artainmo/WebDevelopment/blob/main/mobile/swift/README.md)<br>
