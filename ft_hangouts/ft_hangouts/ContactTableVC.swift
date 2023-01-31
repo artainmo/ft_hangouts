@@ -31,11 +31,6 @@ class ContactTableVC: UIViewController {
         }
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let destinationVC = segue.destination as! ContactPageVC
-        destinationVC.contact = sender as! [String: String]
-    }
-    
     func updateContacts() {
         contacts.removeAll()
         contacts = getContacts().1
@@ -72,10 +67,18 @@ extension ContactTableVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if contacts.count <= indexPath.row {
-            performSegue(withIdentifier: "contactAccount", sender: nil)
             return
         }
         let contact = contacts[indexPath.row]
-        performSegue(withIdentifier: "contactAccount", sender: contact)
+        
+        let vc = storyboard?.instantiateViewController(identifier: "ContactPage") as! ContactPageVC
+        vc.title = contact["firstname"]! + " " + contact["lastname"]!
+        vc.contact = contact
+        vc.updateContacts = {
+            DispatchQueue.main.async {
+                self.updateContacts()
+            }
+        }
+        navigationController?.pushViewController(vc, animated: true)
     }
 }

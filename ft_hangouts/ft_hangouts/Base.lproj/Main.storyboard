@@ -50,28 +50,11 @@
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="XP3-55-2mz" id="VwM-su-gGr"/>
-                        <segue destination="LFI-8R-awY" kind="show" identifier="contactAccount" id="EuP-Hi-NyR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="410.14492753623193" y="-680.35714285714278"/>
-        </scene>
-        <!--Contact PageVC-->
-        <scene sceneID="fuL-kV-IAJ">
-            <objects>
-                <viewController storyboardIdentifier="contactPage" id="LFI-8R-awY" customClass="ContactPageVC" customModule="ft_hangouts" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="v1r-Fj-lwA">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <viewLayoutGuide key="safeArea" id="cbn-tX-5Nq"/>
-                        <color key="backgroundColor" name="background-color1"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="eRG-vU-1JR"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="NBS-9Q-e29" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1249.2753623188407" y="-680.35714285714278"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="uJL-ca-LJo">
@@ -176,6 +159,57 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DJ5-Ax-pJJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="408.69565217391306" y="-7.3660714285714279"/>
+        </scene>
+        <!--Contact PageVC-->
+        <scene sceneID="cMK-LQ-Q0p">
+            <objects>
+                <viewController storyboardIdentifier="ContactPage" id="9iV-qG-2Tt" customClass="ContactPageVC" customModule="ft_hangouts" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="yik-E1-ovl">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="phone" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IBz-XM-dCC">
+                                <rect key="frame" x="186" y="128" width="48" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="company" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QQ1-9m-A5N">
+                                <rect key="frame" x="183" y="209" width="70" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Dn-0V-Pe6">
+                                <rect key="frame" x="183" y="302" width="41" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="bwI-xB-RJN"/>
+                        <color key="backgroundColor" name="background-color1"/>
+                        <constraints>
+                            <constraint firstItem="bwI-xB-RJN" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="9Dn-0V-Pe6" secondAttribute="trailing" symbolic="YES" id="46x-QH-ESl"/>
+                            <constraint firstItem="bwI-xB-RJN" firstAttribute="trailing" secondItem="IBz-XM-dCC" secondAttribute="trailing" constant="180" id="7IE-EH-RCR"/>
+                            <constraint firstItem="IBz-XM-dCC" firstAttribute="top" secondItem="bwI-xB-RJN" secondAttribute="top" constant="80" id="967-Ik-V10"/>
+                            <constraint firstItem="bwI-xB-RJN" firstAttribute="trailing" secondItem="QQ1-9m-A5N" secondAttribute="trailing" constant="161" id="BNi-3j-9sp"/>
+                            <constraint firstItem="9Dn-0V-Pe6" firstAttribute="top" secondItem="QQ1-9m-A5N" secondAttribute="bottom" constant="72" id="bF7-jf-VZH"/>
+                            <constraint firstItem="9Dn-0V-Pe6" firstAttribute="leading" secondItem="QQ1-9m-A5N" secondAttribute="leading" id="eby-Uu-JNJ"/>
+                            <constraint firstItem="QQ1-9m-A5N" firstAttribute="top" secondItem="IBz-XM-dCC" secondAttribute="bottom" constant="60" id="hhm-g6-Lx4"/>
+                            <constraint firstItem="QQ1-9m-A5N" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="bwI-xB-RJN" secondAttribute="leading" symbolic="YES" id="t4s-gg-DZP"/>
+                            <constraint firstItem="IBz-XM-dCC" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="bwI-xB-RJN" secondAttribute="leading" id="yLU-F1-Sjb"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="companyLabel" destination="QQ1-9m-A5N" id="gSr-Oo-SAi"/>
+                        <outlet property="emailLabel" destination="9Dn-0V-Pe6" id="yum-cp-0ng"/>
+                        <outlet property="phoneLabel" destination="IBz-XM-dCC" id="pnn-hv-DID"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JQc-nI-xuX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1194" y="-680"/>
         </scene>
     </scenes>
     <resources>
