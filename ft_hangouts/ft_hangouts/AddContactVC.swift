@@ -15,10 +15,13 @@ class AddContactVC: UIViewController, UITextFieldDelegate {
     @IBOutlet var fieldPhone: UITextField!
     @IBOutlet var fieldEmail: UITextField!
     
+    @IBOutlet var errorLabel: UILabel!
+    
     var updateContacts: (() -> Void)?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        errorLabel.isHidden = true
         fieldFirstname.delegate = self
         fieldLastname.delegate = self
         fieldCompany.delegate = self
@@ -44,6 +47,8 @@ class AddContactVC: UIViewController, UITextFieldDelegate {
         if success {
             self.updateContacts?()
             navigationController?.popViewController(animated: true)
+        } else {
+            errorLabel.isHidden = false
         }
     }
 

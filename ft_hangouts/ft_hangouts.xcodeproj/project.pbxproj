@@ -19,6 +19,7 @@
 		22E89D7B2987FC29006078AC /* ContactTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E89D7A2987FC29006078AC /* ContactTableVC.swift */; };
 		22E89D9F2988486C006078AC /* ContactPageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E89D9E2988486C006078AC /* ContactPageVC.swift */; };
 		22E89DA1298971B7006078AC /* AddContactVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E89DA0298971B7006078AC /* AddContactVC.swift */; };
+		22E89DA32989A7CF006078AC /* UpdateContactVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E89DA22989A7CF006078AC /* UpdateContactVC.swift */; };
 		2AF30AC1CB7CA036FB0B449C /* Pods_ft_hangouts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD62DA7A94DF2F215087EBB8 /* Pods_ft_hangouts.framework */; };
 /* End PBXBuildFile section */
 
@@ -38,6 +39,7 @@
 		22E89D7A2987FC29006078AC /* ContactTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactTableVC.swift; sourceTree = "<group>"; };
 		22E89D9E2988486C006078AC /* ContactPageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactPageVC.swift; sourceTree = "<group>"; };
 		22E89DA0298971B7006078AC /* AddContactVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddContactVC.swift; sourceTree = "<group>"; };
+		22E89DA22989A7CF006078AC /* UpdateContactVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateContactVC.swift; sourceTree = "<group>"; };
 		6D67B67FF0BB10B97150AA21 /* Pods-ft_hangouts.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ft_hangouts.release.xcconfig"; path = "Target Support Files/Pods-ft_hangouts/Pods-ft_hangouts.release.xcconfig"; sourceTree = "<group>"; };
 		BD62DA7A94DF2F215087EBB8 /* Pods_ft_hangouts.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ft_hangouts.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -94,6 +96,7 @@
 				22E89D7A2987FC29006078AC /* ContactTableVC.swift */,
 				22E89D9E2988486C006078AC /* ContactPageVC.swift */,
 				22E89DA0298971B7006078AC /* AddContactVC.swift */,
+				22E89DA22989A7CF006078AC /* UpdateContactVC.swift */,
 			);
 			path = ft_hangouts;
 			sourceTree = "<group>";
@@ -222,6 +225,7 @@
 				224CA4C0298408B7005B8299 /* database.swift in Sources */,
 				22E89D7B2987FC29006078AC /* ContactTableVC.swift in Sources */,
 				224CA4C229847FAC005B8299 /* contact.swift in Sources */,
+				22E89DA32989A7CF006078AC /* UpdateContactVC.swift in Sources */,
 				224CA4AB2984053B005B8299 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

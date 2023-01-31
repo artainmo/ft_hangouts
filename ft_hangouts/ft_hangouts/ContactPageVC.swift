@@ -23,16 +23,29 @@ class ContactPageVC: UIViewController {
         companyLabel.text = contact["company"]
         emailLabel.text = contact["email"]
         
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Delete",
-                    style: .done, target: self, action: #selector(removeContact))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Edit",
+                  style: .done, target: self, action: #selector(editContact))
     }
     
-    @objc func removeContact() {
-        var success = deleteContact(id: contact["id"]! as NSString)
+    @IBAction func removeContact() {
+        let success = deleteContact(id: contact["id"]! as NSString)
         if success {
             self.updateContacts?()
             navigationController?.popViewController(animated: true)
         }
+    }
+    
+    @objc func editContact() {
+        let vc = storyboard?.instantiateViewController(identifier: "update") as! UpdateContactVC
+        vc.title = "Edit Contact"
+        vc.contact = contact
+        vc.updateContacts = {
+            DispatchQueue.main.async {
+                self.updateContacts?()
+                self.navigationController?.popViewController(animated: false)
+            }
+        }
+        navigationController?.pushViewController(vc, animated: true)
     }
 
 }
