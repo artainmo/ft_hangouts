@@ -22,13 +22,42 @@ class UpdateContactVC: UIViewController, UITextFieldDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        (user_settings.language ==  "English") ?
+                    (self.title = "Edit") : (self.title = "Éditer")
+        view.backgroundColor = UIColor(named: user_settings.color)
+        
         errorLabel.isHidden = true
         fieldFirstname.delegate = self
         fieldLastname.delegate = self
         fieldCompany.delegate = self
         fieldPhone.delegate = self
         fieldEmail.delegate = self
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Save", style: .done, target: self, action: #selector(saveTask))
+        
+        var saveText: String
+        (user_settings.language ==  "English") ?
+                    ( saveText = "Save") : ( saveText = "Sauvegarder")
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: saveText, style: .done, target: self, action: #selector(saveTask))
+        
+        NotificationCenter.default.addObserver(self, selector:
+            #selector(applicationDidBecomeActive),
+            name: UIApplication.didBecomeActiveNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector:
+            #selector(applicationDidEnterBackground),
+            name: UIApplication.didEnterBackgroundNotification, object: nil)
+    }
+    
+    @objc func applicationDidBecomeActive(notification: NSNotification) {
+            let message = getUser().1["last_connected"]!
+            self.showToast(message: message, font: .systemFont(ofSize: 12.0))
+    }
+    
+    @objc func applicationDidEnterBackground(notification: NSNotification) {
+        updateUserLastConnected(user_id: getUser().1["id"]! as NSString)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.viewDidLoad()
     }
     
     @objc func saveTask() {

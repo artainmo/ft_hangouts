@@ -20,6 +20,7 @@
 		22E89D9F2988486C006078AC /* ContactPageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E89D9E2988486C006078AC /* ContactPageVC.swift */; };
 		22E89DA1298971B7006078AC /* AddContactVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E89DA0298971B7006078AC /* AddContactVC.swift */; };
 		22E89DA32989A7CF006078AC /* UpdateContactVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E89DA22989A7CF006078AC /* UpdateContactVC.swift */; };
+		22E89DA52989CB71006078AC /* SettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E89DA42989CB71006078AC /* SettingsVC.swift */; };
 		2AF30AC1CB7CA036FB0B449C /* Pods_ft_hangouts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD62DA7A94DF2F215087EBB8 /* Pods_ft_hangouts.framework */; };
 /* End PBXBuildFile section */
 
@@ -40,6 +41,7 @@
 		22E89D9E2988486C006078AC /* ContactPageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactPageVC.swift; sourceTree = "<group>"; };
 		22E89DA0298971B7006078AC /* AddContactVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddContactVC.swift; sourceTree = "<group>"; };
 		22E89DA22989A7CF006078AC /* UpdateContactVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateContactVC.swift; sourceTree = "<group>"; };
+		22E89DA42989CB71006078AC /* SettingsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsVC.swift; sourceTree = "<group>"; };
 		6D67B67FF0BB10B97150AA21 /* Pods-ft_hangouts.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ft_hangouts.release.xcconfig"; path = "Target Support Files/Pods-ft_hangouts/Pods-ft_hangouts.release.xcconfig"; sourceTree = "<group>"; };
 		BD62DA7A94DF2F215087EBB8 /* Pods_ft_hangouts.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ft_hangouts.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -97,6 +99,7 @@
 				22E89D9E2988486C006078AC /* ContactPageVC.swift */,
 				22E89DA0298971B7006078AC /* AddContactVC.swift */,
 				22E89DA22989A7CF006078AC /* UpdateContactVC.swift */,
+				22E89DA42989CB71006078AC /* SettingsVC.swift */,
 			);
 			path = ft_hangouts;
 			sourceTree = "<group>";
@@ -217,6 +220,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				22E89DA52989CB71006078AC /* SettingsVC.swift in Sources */,
 				22E89D9F2988486C006078AC /* ContactPageVC.swift in Sources */,
 				22E89DA1298971B7006078AC /* AddContactVC.swift in Sources */,
 				224CA4C429848DDF005B8299 /* message.swift in Sources */,
@@ -374,6 +378,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 945Y5W9696;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ft_hangouts/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -402,6 +407,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 945Y5W9696;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ft_hangouts/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

@@ -14,20 +14,43 @@ class ContactTableVC: UIViewController {
     
     override func viewDidLoad() {
         prepareUserAccount()
+        getSettings()
         super.viewDidLoad()
-        self.title = "Contacts"
+        
+        (user_settings.language ==  "English") ?
+                    (self.title = "Contacts") : (self.title = "Contacts")
+        view.backgroundColor = UIColor(named: user_settings.color)
+        
         updateContacts()
         tableView.delegate = self
         tableView.dataSource = self
+        
+        NotificationCenter.default.addObserver(self, selector:
+            #selector(applicationDidBecomeActive),
+            name: UIApplication.didBecomeActiveNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector:
+            #selector(applicationDidEnterBackground),
+            name: UIApplication.didEnterBackgroundNotification, object: nil)
+    }
+    
+    @objc func applicationDidBecomeActive(notification: NSNotification) {
+        let message = getUser().1["last_connected"]!
+        if message != "" {
+            self.showToast(message: message, font: .systemFont(ofSize: 12.0))
+        }
+    }
+    
+    @objc func applicationDidEnterBackground(notification: NSNotification) {
+        updateUserLastConnected(user_id: getUser().1["id"]! as NSString)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.viewDidLoad()
     }
     
     func prepareUserAccount() {
         if getUser().0 == false {
             createUser()
-            //Fill empty database with contacts for test purposes
-            print(createContact(firstname: "Harry", lastname: "Tainmont", company: "OLV", phone: "0473359749", email: "harry@mail.com"))  //test
-            print(createContact(firstname: "Antoine", lastname: "Brandt", company: "SV", phone: "0473859749", email: "antoine@mail.com")) //test
-            print(createContact(firstname: "Thibault", lastname: "Courtois", company: "FC-GENT", phone: "0473879749", email: "Tibo@mail.com")) //test
         }
     }
     
@@ -39,7 +62,6 @@ class ContactTableVC: UIViewController {
     
     @IBAction func addContact() {
         let vc = storyboard?.instantiateViewController(identifier: "add") as! AddContactVC
-        vc.title = "Add Contact"
         vc.updateContacts = {
             DispatchQueue.main.async {
                 self.updateContacts()
@@ -82,3 +104,23 @@ extension ContactTableVC: UITableViewDelegate, UITableViewDataSource {
         navigationController?.pushViewController(vc, animated: true)
     }
 }
+
+extension UIViewController {
+
+func showToast(message : String, font: UIFont) {
+    let toastLabel = UILabel(frame: CGRect(x: self.view.frame.size.width/2 - 75, y: self.view.frame.size.height-100, width: 150, height: 35))
+    toastLabel.backgroundColor = UIColor.black.withAlphaComponent(0.6)
+    toastLabel.textColor = UIColor.white
+    toastLabel.font = font
+    toastLabel.textAlignment = .center;
+    toastLabel.text = message
+    toastLabel.alpha = 1.0
+    toastLabel.layer.cornerRadius = 10;
+    toastLabel.clipsToBounds  =  true
+    self.view.addSubview(toastLabel)
+    UIView.animate(withDuration: 4.0, delay: 0.1, options: .curveEaseOut, animations: {
+         toastLabel.alpha = 0.0
+    }, completion: {(isCompleted) in
+        toastLabel.removeFromSuperview()
+    })
+} }

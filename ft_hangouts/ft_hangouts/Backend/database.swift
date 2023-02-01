@@ -16,7 +16,7 @@ CREATE TABLE user (
     id INTEGER PRIMARY KEY,
     language varchar(20),
     header_color varchar(20),
-    creation_time DATETIME default current_timestamp
+    last_connected default NULL
 );
 """
     let create_contact_table: String = """
@@ -93,9 +93,13 @@ CREATE TABLE message (
                 }
                 ret.append([:])
                 for (i, key) in ret_labels.enumerated() {
-                    ret[row][key] = String(cString:
-                                            sqlite3_column_text(prepared_statement,
-                                                                Int32(i)))
+                    if let val = sqlite3_column_text(prepared_statement,
+                                                     Int32(i)) {
+                        ret[row][key] = String(cString: val)
+                    } else {
+                        ret[row][key] = ""
+                    }
+                    
                 }
                 row += 1
             }
