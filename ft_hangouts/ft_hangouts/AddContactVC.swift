@@ -15,6 +15,8 @@ class AddContactVC: UIViewController, UITextFieldDelegate {
     @IBOutlet var fieldPhone: UITextField!
     @IBOutlet var fieldEmail: UITextField!
     
+    @IBOutlet var imageView: UIImageView!
+    
     @IBOutlet var errorLabel: UILabel!
     
     var updateContacts: (() -> Void)?
@@ -36,7 +38,7 @@ class AddContactVC: UIViewController, UITextFieldDelegate {
         var saveText: String
         (user_settings.language ==  "English") ?
                     ( saveText = "Save") : ( saveText = "Sauvegarder")
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: saveText, style: .done, target: self, action: #selector(saveTask))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: saveText, style: .done, target: self, action: #selector(saveContact))
     
         NotificationCenter.default.addObserver(self, selector:
             #selector(applicationDidBecomeActive),
@@ -59,7 +61,7 @@ class AddContactVC: UIViewController, UITextFieldDelegate {
         self.viewDidLoad()
     }
     
-    @objc func saveTask() {
+    @objc func saveContact() {
         let firstname = fieldFirstname.text! as NSString
         let lastname = fieldLastname.text! as NSString
         let company = fieldCompany.text! as NSString
@@ -75,5 +77,26 @@ class AddContactVC: UIViewController, UITextFieldDelegate {
             errorLabel.isHidden = false
         }
     }
+}
 
+extension AddContactVC: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
+    @IBAction func pickImage() {
+        let vc = UIImagePickerController()
+        vc.sourceType = .photoLibrary
+        vc.delegate = self
+        vc.allowsEditing = true
+        present(vc, animated: true)
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        if let im = info[UIImagePickerController.InfoKey(rawValue: "UIIMagePickerControllerEditedImage")] {
+            imageView.image = im as? UIImage
+        }
+        picker.dismiss(animated: true)
+    }
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        picker.dismiss(animated: true)
+    }
 }
