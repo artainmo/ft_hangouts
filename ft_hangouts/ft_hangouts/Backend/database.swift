@@ -28,7 +28,7 @@ CREATE TABLE contact (
     company varchar(100),
     phone varchar(20) UNIQUE,
     email varchar(100) UNIQUE,
-    picture_storage_path varchar(250) default '',
+    picture_base64 text default '',
     UNIQUE (firstname, lastname)
 );
 """

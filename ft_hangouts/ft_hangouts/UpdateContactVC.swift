@@ -18,6 +18,8 @@ class UpdateContactVC: UIViewController, UITextFieldDelegate {
     @IBOutlet var fieldPhone: UITextField!
     @IBOutlet var fieldEmail: UITextField!
     
+    @IBOutlet var imageView: UIImageView!
+    
     @IBOutlet var errorLabel: UILabel!
 
     override func viewDidLoad() {
@@ -38,6 +40,8 @@ class UpdateContactVC: UIViewController, UITextFieldDelegate {
         (user_settings.language ==  "English") ?
                     ( saveText = "Save") : ( saveText = "Sauvegarder")
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: saveText, style: .done, target: self, action: #selector(saveTask))
+        
+        self.hideKeyboardWhenTappedAround() 
         
         NotificationCenter.default.addObserver(self, selector:
             #selector(applicationDidBecomeActive),
@@ -98,6 +102,14 @@ class UpdateContactVC: UIViewController, UITextFieldDelegate {
                 error = true
             }
         }
+        if let image = imageView.image {
+            if image.ciImage != nil || image.cgImage != nil {
+                if !updateContact(id: contact["id"]! as NSString,
+                                  newValue: image) {
+                    error = true
+                }
+            }
+        }
         
         if !error {
             self.updateContacts?()
@@ -105,5 +117,31 @@ class UpdateContactVC: UIViewController, UITextFieldDelegate {
         } else {
             errorLabel.isHidden = false
         }
+    }
+}
+
+extension UpdateContactVC: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
+    @IBAction func pickImage() {
+        let vc = UIImagePickerController()
+        vc.sourceType = .photoLibrary
+        vc.delegate = self
+        vc.allowsEditing = true
+        present(vc, animated: true)
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        print("Image picked")
+        if let im = info[UIImagePickerController.InfoKey.editedImage] as? UIImage {
+            print("Image unwrapped")
+            imageView.image = im
+        } else {
+            print("Error unwrapping image")
+        }
+        picker.dismiss(animated: true)
+    }
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        picker.dismiss(animated: true)
     }
 }

@@ -17,6 +17,8 @@ class ContactPageVC: UIViewController {
     @IBOutlet var companyLabel: UILabel!
     @IBOutlet var emailLabel: UILabel!
     
+    @IBOutlet var imageView: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -26,6 +28,7 @@ class ContactPageVC: UIViewController {
         phoneLabel.text = contact["phone"]
         companyLabel.text = contact["company"]
         emailLabel.text = contact["email"]
+        imageView.image = base64ToUIImage(base64: contact["picture_base64"]!)
         
         var editText: String
         (user_settings.language ==  "English") ?

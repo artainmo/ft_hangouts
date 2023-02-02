@@ -39,6 +39,8 @@ class AddContactVC: UIViewController, UITextFieldDelegate {
         (user_settings.language ==  "English") ?
                     ( saveText = "Save") : ( saveText = "Sauvegarder")
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: saveText, style: .done, target: self, action: #selector(saveContact))
+        
+        self.hideKeyboardWhenTappedAround() 
     
         NotificationCenter.default.addObserver(self, selector:
             #selector(applicationDidBecomeActive),
@@ -69,7 +71,8 @@ class AddContactVC: UIViewController, UITextFieldDelegate {
         let email = fieldEmail.text! as NSString
         
         let success = createContact(firstname: firstname,
-                lastname: lastname, company: company, phone: phone, email: email)
+                lastname: lastname, company: company, phone: phone,
+                email: email, picture: imageView.image!)
         if success {
             self.updateContacts?()
             navigationController?.popViewController(animated: true)
@@ -90,13 +93,29 @@ extension AddContactVC: UIImagePickerControllerDelegate, UINavigationControllerD
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        if let im = info[UIImagePickerController.InfoKey(rawValue: "UIIMagePickerControllerEditedImage")] {
-            imageView.image = im as? UIImage
+        print("Image picked")
+        if let im = info[UIImagePickerController.InfoKey.editedImage] as? UIImage {
+            print("Image unwrapped")
+            imageView.image = im
+        } else {
+            print("Error unwrapping image")
         }
         picker.dismiss(animated: true)
     }
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         picker.dismiss(animated: true)
+    }
+}
+
+extension UIViewController {
+    func hideKeyboardWhenTappedAround() {
+        let tap = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
+    }
+    
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
     }
 }
