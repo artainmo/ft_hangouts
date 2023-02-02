@@ -25,6 +25,12 @@ class ContactTableVC: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         
+        var addText: String
+        (user_settings.language ==  "English") ?
+                    ( addText = "Add") : ( addText = "Ajouter")
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: addText,
+                  style: .done, target: self, action: #selector(addContact))
+        
         NotificationCenter.default.addObserver(self, selector:
             #selector(applicationDidBecomeActive),
             name: UIApplication.didBecomeActiveNotification, object: nil)
@@ -60,7 +66,7 @@ class ContactTableVC: UIViewController {
         tableView.reloadData()
     }
     
-    @IBAction func addContact() {
+    @objc func addContact() {
         let vc = storyboard?.instantiateViewController(identifier: "add") as! AddContactVC
         vc.updateContacts = {
             DispatchQueue.main.async {

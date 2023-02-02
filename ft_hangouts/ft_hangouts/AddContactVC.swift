@@ -17,6 +17,7 @@ class AddContactVC: UIViewController, UITextFieldDelegate {
     
     @IBOutlet var imageView: UIImageView!
     
+    @IBOutlet weak var photoButton: UIButton!
     @IBOutlet var errorLabel: UILabel!
     
     var updateContacts: (() -> Void)?
@@ -39,6 +40,29 @@ class AddContactVC: UIViewController, UITextFieldDelegate {
         (user_settings.language ==  "English") ?
                     ( saveText = "Save") : ( saveText = "Sauvegarder")
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: saveText, style: .done, target: self, action: #selector(saveContact))
+        if user_settings.language == "English" {
+            fieldFirstname.placeholder = "First name"
+            fieldLastname.placeholder = "Last name"
+            fieldCompany.placeholder = "Company"
+            fieldPhone.placeholder = "Phone number"
+            fieldEmail.placeholder = "Email"
+        } else {
+            fieldFirstname.placeholder = "Prénom"
+            fieldLastname.placeholder = "Nom de famille"
+            fieldCompany.placeholder = "Entreprise"
+            fieldPhone.placeholder = "Numéro de téléphone"
+            fieldEmail.placeholder = "Email"
+        }
+        if user_settings.language == "English" {
+            photoButton.setTitle("Pick Photo", for: .normal)
+        } else {
+            photoButton.setTitle("Choisir Photo", for: .normal)
+        }
+        if user_settings.language == "English" {
+            errorLabel.text = "Not possible to create contact."
+        } else {
+            errorLabel.text = "Pas possible de créer contact."
+        }
         
         self.hideKeyboardWhenTappedAround() 
     

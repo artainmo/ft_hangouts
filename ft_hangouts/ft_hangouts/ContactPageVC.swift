@@ -84,7 +84,7 @@ extension ContactPageVC: MFMessageComposeViewControllerDelegate {
     
     @IBAction func send_message() {
         if !MFMessageComposeViewController.canSendText() {
-            print("Device not able to send messages")
+            print("Device not able to send messages.")
             return
         }
         let composer = MFMessageComposeViewController()
@@ -119,4 +119,39 @@ extension ContactPageVC: MFMessageComposeViewControllerDelegate {
         }
     }
     
+}
+
+extension ContactPageVC: MFMailComposeViewControllerDelegate {
+    
+    @IBAction func send_mail() {
+        if !MFMailComposeViewController.canSendMail() {
+            print("Device not able to send mails.")
+            return
+        }
+        let composer = MFMailComposeViewController()
+        composer.mailComposeDelegate = self
+        composer.setToRecipients([contact["email"]!])
+        present(composer, animated: true)
+    }
+    
+    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+        if let e = error {
+            print(e)
+            controller.dismiss(animated: true)
+            return
+        }
+        switch result {
+        case .cancelled:
+            print("Cancelled")
+        case .failed:
+            print("Failed to send")
+        case .saved:
+            print("Saved")
+        case .sent:
+            print("Email sent")
+        @unknown default:
+            print("Unknown")
+        }
+        controller.dismiss(animated: true)
+    }
 }
