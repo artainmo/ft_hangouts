@@ -25,9 +25,9 @@ class ContactPageVC: UIViewController {
         self.title = contact["firstname"]! + " " + contact["lastname"]!
         view.backgroundColor = UIColor(named: user_settings.color)
         
-        phoneLabel.text = contact["phone"]
-        companyLabel.text = contact["company"]
-        emailLabel.text = contact["email"]
+        phoneLabel.text = "Phone number: " + contact["phone"]!
+        companyLabel.text = "Company: " + contact["company"]!
+        emailLabel.text = "Email: " + contact["email"]!
         imageView.image = base64ToUIImage(base64: contact["picture_base64"]!)
         
         var editText: String
