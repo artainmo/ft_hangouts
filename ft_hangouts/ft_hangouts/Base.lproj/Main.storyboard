@@ -238,7 +238,7 @@
                                     <action selector="send_message" destination="9iV-qG-2Tt" eventType="touchUpInside" id="Op4-6i-FfB"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4p9-Oo-qx9">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4p9-Oo-qx9">
                                 <rect key="frame" x="139" y="514" width="116" height="35"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Call">
@@ -435,6 +435,10 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Settings" image="pencil.slash" catalog="system" id="zj0-3s-Wku"/>
                     <navigationItem key="navigationItem" id="FGm-d8-UGY"/>
+                    <connections>
+                        <outlet property="colorSC" destination="Vdo-6L-GV5" id="q7F-QC-nlJ"/>
+                        <outlet property="languageSC" destination="eg7-Qi-YYF" id="Hgc-Od-CVe"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xfw-Ea-DYD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

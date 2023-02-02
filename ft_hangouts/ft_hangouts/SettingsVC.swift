@@ -9,12 +9,21 @@ import UIKit
 
 class SettingsVC: UIViewController {
 
+    @IBOutlet weak var languageSC: UISegmentedControl!
+    @IBOutlet weak var colorSC: UISegmentedControl!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         (user_settings.language ==  "English") ?
                     (self.title = "Settings") : (self.title = "Paramètres")
         view.backgroundColor = UIColor(named: user_settings.color)
+        (user_settings.language ==  "English") ?
+            (languageSC.selectedSegmentIndex = 0) :
+            (languageSC.selectedSegmentIndex = 1)
+        (user_settings.color ==  "background-color1") ?
+            (colorSC.selectedSegmentIndex = 0) :
+            (colorSC.selectedSegmentIndex = 1)
         
         NotificationCenter.default.addObserver(self, selector:
             #selector(applicationDidBecomeActive),
