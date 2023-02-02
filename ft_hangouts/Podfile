@@ -6,5 +6,5 @@ target 'ft_hangouts' do
   use_frameworks!
 
   # Pods for ft_hangouts
-
+  # No external libraries are allowed in this project thus this is empty!
 end
