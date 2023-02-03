@@ -552,7 +552,7 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Settings" image="pencil.slash" catalog="system" id="zj0-3s-Wku"/>
-                    <navigationItem key="navigationItem" title="Title" largeTitleDisplayMode="always" id="inb-5q-h3S"/>
+                    <navigationItem key="navigationItem" title="Settings" largeTitleDisplayMode="always" id="inb-5q-h3S"/>
                     <connections>
                         <outlet property="colorSC" destination="Vdo-6L-GV5" id="q7F-QC-nlJ"/>
                         <outlet property="deleteButton" destination="Eac-K2-SdB" id="cYz-vI-FCV"/>
