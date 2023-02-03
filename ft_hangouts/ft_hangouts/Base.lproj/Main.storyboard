@@ -341,9 +341,13 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="callButton" destination="4p9-Oo-qx9" id="khd-Uq-Cd0"/>
                         <outlet property="companyLabel" destination="QQ1-9m-A5N" id="gSr-Oo-SAi"/>
+                        <outlet property="deleteButton" destination="M4N-3V-Aas" id="2HQ-VE-xdi"/>
                         <outlet property="emailLabel" destination="9Dn-0V-Pe6" id="yum-cp-0ng"/>
                         <outlet property="imageView" destination="CSH-VP-FV6" id="Or7-M4-Off"/>
+                        <outlet property="mailButton" destination="USN-QQ-UrF" id="biv-OA-d1R"/>
+                        <outlet property="messageButton" destination="gCh-6k-Qcv" id="EWW-ZL-mAe"/>
                         <outlet property="phoneLabel" destination="IBz-XM-dCC" id="pnn-hv-DID"/>
                     </connections>
                 </viewController>

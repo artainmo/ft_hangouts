@@ -19,15 +19,34 @@ class ContactPageVC: UIViewController {
     
     @IBOutlet var imageView: UIImageView!
     
+    @IBOutlet var messageButton: UIButton!
+    @IBOutlet var callButton: UIButton!
+    @IBOutlet var mailButton: UIButton!
+    @IBOutlet var deleteButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.title = contact["firstname"]! + " " + contact["lastname"]!
         view.backgroundColor = UIColor(named: user_settings.color)
         
-        phoneLabel.text = "Phone number: " + contact["phone"]!
-        companyLabel.text = "Company: " + contact["company"]!
-        emailLabel.text = "Email: " + contact["email"]!
+        if user_settings.language == "English" {
+            phoneLabel.text = "Phone number: " + contact["phone"]!
+            companyLabel.text = "Company: " + contact["company"]!
+            emailLabel.text = "Email: " + contact["email"]!
+            mailButton.setTitle("Mail", for: .normal)
+            callButton.setTitle("Call", for: .normal)
+            messageButton.setTitle("Message", for: .normal)
+            deleteButton.setTitle("DELETE", for: .normal)
+        } else {
+            phoneLabel.text = "Numéro de téléphone: " + contact["phone"]!
+            companyLabel.text = "Entreprise: " + contact["company"]!
+            emailLabel.text = "Email: " + contact["email"]!
+            mailButton.setTitle("Mail", for: .normal)
+            callButton.setTitle("Téléphoner", for: .normal)
+            messageButton.setTitle("Message", for: .normal)
+            deleteButton.setTitle("SUPPRIMER", for: .normal)
+        }
         imageView.image = base64ToUIImage(base64: contact["picture_base64"]!)
         
         var editText: String
