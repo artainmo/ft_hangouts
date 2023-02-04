@@ -5,6 +5,11 @@
 //  Created by Arthur Tainmont on 27/01/2023.
 //
 
+/*
+ * IN THE END WE DON'T HANDLE MESSAGES OURSELVES AND THUS DON'T USE THIS FILE
+ * MESSAGES ARE HANDLED BY APPLE ITSELF
+ */
+
 import Foundation
 
 func createMessage(send_by_me: NSString, contact_id: NSString, content: NSString) -> Bool {

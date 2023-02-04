@@ -10,6 +10,12 @@ import UIKit
 
 func createContact(firstname: NSString, lastname: NSString, company: NSString,
                    phone: NSString, email: NSString, picture: UIImage) -> Bool {
+    if !verify_inputs(firstname: firstname as String, lastname: lastname as String,
+                      company: company as String, phone: phone as String,
+                      email: email as String) {
+        return false
+    }
+    
     let db = database()
     let picture_base64 = UIImageToBase64(image: picture) as NSString
     
@@ -54,6 +60,17 @@ func getContact(id: NSString) -> (Bool, [String: String]) {
 }
 
 func updateContact(id: NSString, columnToUpdate: String, newValue: NSString) -> Bool {
+    let newValueString = newValue as String
+    if newValueString.isEmpty || newValueString.containsWhitespaceAndNewlines() {
+        return false
+    }
+    if columnToUpdate == "phone" && !validate_phone_number(phone: newValueString) {
+        return false
+    }
+    if columnToUpdate == "email" && !validate_email(email: newValueString) {
+        return false
+    }
+    
     let db = database()
     
     print("Update a specific contact.")
@@ -97,4 +114,48 @@ func UIImageToBase64(image: UIImage) -> String {
         print("Unable to transform image for database storage")
         return ""
     }
+}
+
+extension String {
+    func containsWhitespaceAndNewlines() -> Bool {
+        return rangeOfCharacter(from: .whitespacesAndNewlines) != nil
+    }
+}
+
+extension String {
+   var isNumeric: Bool {
+     return !(self.isEmpty) && self.allSatisfy { $0.isNumber }
+   }
+}
+
+func validate_phone_number(phone: String) -> Bool {
+    return phone.isNumeric
+}
+
+func validate_email(email: String) -> Bool {
+    if email.count < 3 || !email.contains("@") {
+        return false
+    }
+    return true
+}
+
+func verify_inputs(firstname: String, lastname: String, company: String,
+                   phone: String, email: String) -> Bool {
+    if firstname.isEmpty || lastname.isEmpty || company.isEmpty || phone.isEmpty || email.isEmpty {
+        return false
+    }
+    if firstname.containsWhitespaceAndNewlines() ||
+                lastname.containsWhitespaceAndNewlines() ||
+                company.containsWhitespaceAndNewlines() ||
+                phone.containsWhitespaceAndNewlines() ||
+                email.containsWhitespaceAndNewlines() {
+        return false
+    }
+    if !validate_email(email: email) {
+        return false
+    }
+    if !validate_phone_number(phone: phone) {
+        return false
+    }
+    return true
 }

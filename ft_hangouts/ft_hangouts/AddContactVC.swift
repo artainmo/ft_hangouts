@@ -94,6 +94,15 @@ class AddContactVC: UIViewController, UITextFieldDelegate {
         let phone = fieldPhone.text! as NSString
         let email = fieldEmail.text! as NSString
         
+        if let image = imageView.image {
+            if image.ciImage == nil && image.cgImage == nil {
+                errorLabel.isHidden = false
+                return
+            }
+        } else {
+            errorLabel.isHidden = false
+            return
+        }
         let success = createContact(firstname: firstname,
                 lastname: lastname, company: company, phone: phone,
                 email: email, picture: imageView.image!)
