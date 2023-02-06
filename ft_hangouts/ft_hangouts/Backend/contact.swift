@@ -70,6 +70,18 @@ func updateContact(id: NSString, columnToUpdate: String, newValue: NSString) -> 
     if columnToUpdate == "email" && !validate_email(email: newValueString) {
         return false
     }
+    if (columnToUpdate == "firstname" &&
+        newValueString.count > 39) ||
+        (columnToUpdate == "lastname" &&
+            newValueString.count > 39) ||
+        (columnToUpdate == "company" &&
+            newValueString.count > 99) ||
+        (columnToUpdate == "phone" &&
+            newValueString.count > 19) ||
+        (columnToUpdate == "email" &&
+         newValueString.count > 99) {
+        return false
+    }
     
     let db = database()
     
@@ -149,6 +161,11 @@ func verify_inputs(firstname: String, lastname: String, company: String,
                 company.containsWhitespaceAndNewlines() ||
                 phone.containsWhitespaceAndNewlines() ||
                 email.containsWhitespaceAndNewlines() {
+        return false
+    }
+    if firstname.count > 39 || lastname.count > 39 ||
+        company.count > 99 || phone.count > 19 ||
+        email.count > 99 {
         return false
     }
     if !validate_email(email: email) {
