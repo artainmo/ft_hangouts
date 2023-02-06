@@ -5,6 +5,13 @@ In this project we have to create a **mobile messaging app**.
 
 I use the IOS language **Swift** in Xcode using **storyboards** for frontend with as database **SQLite**.
 
+# Run
+Install dependencies first.
+```
+pod install
+```
+Open project with Xcode and run simulator, which can be personal phone and needs to be personal phone for message/call/email functionalities.
+
 # Documentation
 [artainmo - notes on swift](https://github.com/artainmo/WebDevelopment/blob/main/mobile/swift/README.md)<br>
 [SQLite With Swift Tutorial: Getting Started](https://www.kodeco.com/6620276-sqlite-with-swift-tutorial-getting-started)<br>
