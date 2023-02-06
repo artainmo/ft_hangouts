@@ -109,6 +109,10 @@ extension ContactTableVC: UITableViewDelegate, UITableViewDataSource {
         }
         navigationController?.pushViewController(vc, animated: true)
     }
+    
+    override func willTransition(to newCollection: UITraitCollection, with coordinator: UIViewControllerTransitionCoordinator) {
+        
+    }
 }
 
 extension UIViewController {
